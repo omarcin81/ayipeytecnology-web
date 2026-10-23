@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Ayipey Tecnology">
+  <defs>
+    <linearGradient id="ayp-g" x1="10" y1="8" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3FB56A"/>
+      <stop offset="1" stop-color="#17663A"/>
+    </linearGradient>
+  </defs>
+  <g transform="rotate(-14 32 32)">
+    <rect x="9" y="9" width="46" height="46" rx="12" fill="url(#ayp-g)"/>
+    <path d="M19 29v4a13 13 0 0 0 26 0v-4" stroke="#0B2A17" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <circle cx="29" cy="26" r="6.5" fill="#CBE45C"/>
+</svg>

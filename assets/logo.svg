@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 72" fill="none" role="img" aria-label="Ayipey Tecnology">
+  <defs>
+    <linearGradient id="ayp-g" x1="14" y1="12" x2="58" y2="62" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3FB56A"/>
+      <stop offset="1" stop-color="#17663A"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(4 4)">
+    <g transform="rotate(-14 32 32)">
+      <rect x="9" y="9" width="46" height="46" rx="12" fill="url(#ayp-g)"/>
+      <path d="M19 29v4a13 13 0 0 0 26 0v-4" stroke="#0B2A17" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <circle cx="29" cy="26" r="6.5" fill="#CBE45C"/>
+  </g>
+  <text x="82" y="38" font-family="Sora, 'Segoe UI', Arial, sans-serif" font-size="30" font-weight="700" fill="#16301F" letter-spacing="-0.5">Ayipey</text>
+  <text x="82" y="60" font-family="Sora, 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="500" fill="#2E8B57" letter-spacing="4.2">TECNOLOGY</text>
+</svg>

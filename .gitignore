@@ -1,0 +1,5 @@
+# Documentos fiscales y archivos fuente que no deben publicarse
+*.pdf
+logo-administracion-ayipey-tecnology.jpg
+.DS_Store
+Thumbs.db
