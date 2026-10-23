@@ -235,6 +235,25 @@ p { margin: 0 0 1em; }
 .payslip tfoot td { padding-top: 14px; border: 0; font: 700 17px/1 var(--font-head); color: var(--lime); }
 .payslip__alert { margin-top: 18px; padding: 10px 12px; border-radius: 10px; background: rgba(240,138,126,.1); color: #f6c2bb; font-size: 13px; }
 
+.product--reverse { grid-template-columns: .9fr 1.1fr; }
+.ledger {
+  padding: 26px; border-radius: 22px; background: #0b1510; border: 1px solid var(--border);
+  box-shadow: var(--shadow); transform: rotate(2deg); font-size: 14.5px;
+}
+.ledger__list { list-style: none; padding: 0; margin: 18px 0; display: grid; gap: 10px; }
+.ledger__list li {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 12px 14px; border-radius: 12px; background: var(--surface);
+}
+.ledger__who { font-weight: 600; }
+.ledger__who small { display: block; font-weight: 400; color: var(--muted); font-size: 12.5px; }
+.tag { flex: none; padding: 5px 10px; border-radius: 999px; font: 600 11.5px/1 var(--font-head); }
+.tag--ok { background: rgba(203,228,92,.14); color: var(--lime); }
+.tag--warn { background: rgba(240,138,126,.14); color: #f6c2bb; }
+.ledger__foot { display: flex; flex-wrap: wrap; gap: 8px; }
+.ledger__foot span { padding: 6px 10px; border-radius: 8px; border: 1px dashed rgba(203,228,92,.25); color: var(--muted); font-size: 12.5px; }
+.ledger__foot span::before { content: "✓ "; color: var(--lime); }
+
 /* Projects */
 .filters { display: flex; flex-wrap: wrap; gap: 10px; margin: -24px 0 32px; }
 .filters:empty { display: none; }
@@ -310,7 +329,8 @@ p { margin: 0 0 1em; }
   .step::after { display: none; }
   .features { grid-template-columns: repeat(2, 1fr); }
   .product--split { grid-template-columns: 1fr; }
-  .payslip { max-width: 440px; }
+  .product--reverse .ledger { order: 2; }
+  .payslip, .ledger { max-width: 460px; }
   .about, .contact { gap: 40px; }
 }
 @media (max-width: 860px) {
@@ -335,5 +355,5 @@ p { margin: 0 0 1em; }
   .float-card--a { left: 0; }
   .float-card--b { right: 0; }
   .form { padding: 22px; }
-  .payslip { transform: none; }
+  .payslip, .ledger { transform: none; }
 }

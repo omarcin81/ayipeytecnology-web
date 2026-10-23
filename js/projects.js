@@ -31,6 +31,16 @@ window.AYIPEY_PROJECTS = [
     featured: true,
   },
   {
+    title: "Conta: contabilidad electrónica en línea",
+    category: "SaaS multiempresa",
+    summary:
+      "Contabilidad para empresas y personas con actividad empresarial a partir de las facturas descargadas del SAT. Aprende cómo se registra cada cliente y proveedor, revisa listas negras, prepara la DIOT y hace los cierres de mes y año.",
+    tags: ["Descarga masiva SAT", "Pólizas automáticas", "Listas 69-B", "DIOT", "Multi-despacho", "Migración CONTPAQi"],
+    icon: "chart",
+    link: "#conta",
+    featured: true,
+  },
+  {
     title: "Consolidación de Pedidos, Punto de Venta y Cobranza",
     category: "Software a la medida",
     summary:
