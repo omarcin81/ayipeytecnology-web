@@ -79,7 +79,29 @@
   function render(cat) {
     var list = cat ? projects.filter(function (p) { return p.category === cat; }) : projects;
     grid.innerHTML = list.map(card).join("") + moreCard;
+    indexChildren(grid);
+    if (grid.classList.contains("is-in")) {
+      // Reinicia la entrada escalonada al cambiar de filtro
+      grid.classList.remove("is-in", "is-done");
+      requestAnimationFrame(function () { requestAnimationFrame(function () { show(grid); }); });
+    }
   }
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function indexChildren(parent) {
+    Array.prototype.forEach.call(parent.children, function (c, i) { c.style.setProperty("--i", Math.min(i, 8)); });
+  }
+
+  function show(el) {
+    el.classList.add("is-in");
+    el.querySelectorAll("[data-count], [data-since]").forEach(countUp);
+    if (el.matches("[data-count], [data-since]")) countUp(el);
+    // Quita los retrasos al terminar para que el hover responda al instante
+    setTimeout(function () { el.classList.add("is-done"); }, 1600);
+  }
+
+  grid.classList.add("stagger");
 
   var cats = projects.map(function (p) { return p.category; })
     .filter(function (c, i, a) { return a.indexOf(c) === i; });
@@ -98,17 +120,93 @@
   }
   render("");
 
-  // Animación al aparecer
-  var els = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window) {
+  // Contadores animados (ej. montos del recibo, años de operación)
+  var fmtCache = {};
+  function fmt(n, dec) {
+    var f = fmtCache[dec] || (fmtCache[dec] = new Intl.NumberFormat("es-MX", { minimumFractionDigits: dec, maximumFractionDigits: dec }));
+    return f.format(n);
+  }
+  document.querySelectorAll("[data-since]").forEach(function (el) {
+    var since = new Date(el.getAttribute("data-since"));
+    var years = Math.floor((Date.now() - since) / (365.25 * 864e5));
+    el.setAttribute("data-count", years);
+    el.textContent = years;
+  });
+  function countUp(el) {
+    if (el.dataset.counted) return;
+    el.dataset.counted = "1";
+    var to = parseFloat(el.getAttribute("data-count"));
+    var dec = parseInt(el.getAttribute("data-dec") || "0", 10);
+    if (reduceMotion) { el.textContent = fmt(to, dec); return; }
+    var start = null, dur = 1100;
+    function step(t) {
+      if (start === null) start = t;
+      var k = Math.min((t - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - k, 3);
+      el.textContent = fmt(to * eased, dec);
+      if (k < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Entrada al hacer scroll (IntersectionObserver, solo transform/opacity)
+  document.querySelectorAll(".stagger").forEach(indexChildren);
+  document.querySelectorAll(".grid, .values").forEach(function (g) {
+    var items = g.querySelectorAll(":scope > .reveal");
+    Array.prototype.forEach.call(items, function (el, i) { el.style.setProperty("--i", Math.min(i, 8)); });
+  });
+  var els = document.querySelectorAll(".reveal, .stagger");
+  if ("IntersectionObserver" in window && !reduceMotion) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); }
+        if (en.isIntersecting) { show(en.target); io.unobserve(en.target); }
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
     els.forEach(function (el) { io.observe(el); });
   } else {
-    els.forEach(function (el) { el.classList.add("is-in"); });
+    els.forEach(show);
+  }
+
+  // Brillo que sigue al cursor en tarjetas (solo con mouse)
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    document.addEventListener("pointermove", function (e) {
+      var t = e.target.closest && e.target.closest(".card, .step, .values li");
+      if (!t) return;
+      var r = t.getBoundingClientRect();
+      t.style.setProperty("--mx", (e.clientX - r.left) + "px");
+      t.style.setProperty("--my", (e.clientY - r.top) + "px");
+    }, { passive: true });
+  }
+
+  // Barra de progreso y sección activa en el menú
+  var bar = document.querySelector(".progress");
+  var ticking = false;
+  window.addEventListener("scroll", function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.setProperty("--p", h > 0 ? (window.scrollY / h).toFixed(4) : 0);
+      ticking = false;
+    });
+  }, { passive: true });
+
+  var links = {};
+  menu.querySelectorAll('a[href^="#"]:not(.btn)').forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
+  if ("IntersectionObserver" in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        Object.keys(links).forEach(function (k) { links[k].removeAttribute("aria-current"); });
+        var a = links[en.target.id];
+        if (a) a.setAttribute("aria-current", "true");
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    spy.observe(document.querySelector(".hero"));
+    Object.keys(links).forEach(function (id) {
+      var s = document.getElementById(id);
+      if (s) spy.observe(s);
+    });
   }
 
   // Botones de producto preseleccionan el interés en el formulario

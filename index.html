@@ -39,6 +39,7 @@
 </head>
 <body>
   <a class="skip" href="#main">Saltar al contenido</a>
+  <div class="progress" aria-hidden="true"></div>
 
   <header class="nav" id="top">
     <div class="container nav__inner">
@@ -63,8 +64,9 @@
     <!-- HERO -->
     <section class="hero">
       <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--lime" aria-hidden="true"></div>
       <div class="container hero__grid">
-        <div class="hero__copy reveal">
+        <div class="hero__copy stagger">
           <p class="eyebrow"><span class="dot"></span> Desarrollo de software · CDMX</p>
           <h1>Tecnología que pone a <span class="hl">trabajar</span> tu operación.</h1>
           <p class="lead">Diseñamos y construimos software a la medida, plataformas SaaS e integraciones con WhatsApp para que tu empresa controle, automatice y cumpla.</p>
@@ -73,9 +75,9 @@
             <a class="btn btn--ghost" href="#proyectos">Ver proyectos →</a>
           </div>
           <ul class="hero__stats">
-            <li><strong>2019</strong><span>operando desde</span></li>
-            <li><strong>SaaS</strong><span>multiempresa</span></li>
-            <li><strong>100%</strong><span>desarrollo propio</span></li>
+            <li><strong><span data-since="2019-12-11">6</span>+</strong><span>años desarrollando</span></li>
+            <li><strong><span data-count="4">4</span></strong><span>sistemas en operación</span></li>
+            <li><strong><span data-count="100">100</span>%</strong><span>desarrollo propio</span></li>
           </ul>
         </div>
 
@@ -96,8 +98,8 @@
               <div class="msg msg--typing"><i></i><i></i><i></i></div>
             </div>
           </div>
-          <div class="float-card float-card--a"><span>📍</span> GPS dentro del área</div>
-          <div class="float-card float-card--b"><span>🔒</span> Registro firmado</div>
+          <div class="float-card float-card--a"><svg class="ic" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg> GPS dentro del área</div>
+          <div class="float-card float-card--b"><svg class="ic" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Registro firmado</div>
         </div>
       </div>
     </section>
@@ -162,7 +164,7 @@
             <p class="lead">Servicio multiempresa en renta, listo para la <strong>reforma laboral sobre el registro electrónico de la jornada</strong>. No hace falta comprar aparatos ni instalar apps: los trabajadores checan desde el WhatsApp que ya usan.</p>
           </div>
 
-          <ol class="steps">
+          <ol class="steps stagger">
             <li class="step">
               <span class="step__n">1</span>
               <h4>Envían un mensaje</h4>
@@ -185,13 +187,13 @@
             </li>
           </ol>
 
-          <div class="features">
-            <div class="feature"><span>⏱️</span><div><h4>Retardos y faltas</h4><p>Cálculo automático según horarios y turnos.</p></div></div>
-            <div class="feature"><span>🔔</span><div><h4>Recordatorios automáticos</h4><p>Avisos por WhatsApp para no olvidar checar.</p></div></div>
-            <div class="feature"><span>📝</span><div><h4>Correcciones auditadas</h4><p>Cada ajuste registra quién, cuándo y por qué.</p></div></div>
-            <div class="feature"><span>📊</span><div><h4>Reportes Excel y PDF</h4><p>Listos para nómina e inspecciones laborales.</p></div></div>
-            <div class="feature"><span>🏢</span><div><h4>Multiempresa</h4><p>Cada cliente con su propio espacio, sucursales y usuarios.</p></div></div>
-            <div class="feature"><span>🛵</span><div><h4>Personal en campo</h4><p>Modo sin geocerca para repartidores y vendedores.</p></div></div>
+          <div class="features stagger">
+            <div class="feature"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><h4>Retardos y faltas</h4><p>Cálculo automático según horarios y turnos.</p></div></div>
+            <div class="feature"><svg class="ic" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><div><h4>Recordatorios automáticos</h4><p>Avisos por WhatsApp para no olvidar checar.</p></div></div>
+            <div class="feature"><svg class="ic" viewBox="0 0 24 24"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h4"/></svg><div><h4>Correcciones auditadas</h4><p>Cada ajuste registra quién, cuándo y por qué.</p></div></div>
+            <div class="feature"><svg class="ic" viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg><div><h4>Reportes Excel y PDF</h4><p>Listos para nómina e inspecciones laborales.</p></div></div>
+            <div class="feature"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/></svg><div><h4>Multiempresa</h4><p>Cada cliente con su propio espacio, sucursales y usuarios.</p></div></div>
+            <div class="feature"><svg class="ic" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><h4>Personal en campo</h4><p>Modo sin geocerca para repartidores y vendedores.</p></div></div>
           </div>
           <a class="btn" href="#contacto" data-interes="Reloj Checador por WhatsApp">Solicitar demostración</a>
         </article>
@@ -202,7 +204,7 @@
             <span class="badge">Nómina</span>
             <h3 class="product__title">Sistema de Nómina Multi-RFC</h3>
             <p class="lead">Nómina web para <strong>personas físicas y morales en México</strong>. Cada empresa (RFC) tiene su propia base de datos. Cada dueño da de alta sus RFC a partir de la Constancia de Situación Fiscal y administra sus usuarios y roles.</p>
-            <ul class="checks">
+            <ul class="checks stagger">
               <li>Nóminas ordinarias y extraordinarias por periodo</li>
               <li>ISR, subsidio para el empleo, IMSS e INFONAVIT</li>
               <li>Impuesto sobre nómina según cada estado</li>
@@ -222,15 +224,15 @@
             <div class="payslip__rfc"><span>RFC</span> XAXX010101000 · Ciudad de México</div>
             <table>
               <tbody>
-                <tr><td>Sueldo</td><td>$ 12,500.00</td></tr>
-                <tr><td>Horas extra</td><td>$ 1,041.67</td></tr>
-                <tr class="neg"><td>ISR</td><td>− $ 1,612.40</td></tr>
-                <tr class="neg"><td>IMSS</td><td>− $ 341.25</td></tr>
-                <tr class="neg"><td>INFONAVIT</td><td>− $ 620.00</td></tr>
+                <tr><td>Sueldo</td><td>$ <span data-count="12500" data-dec="2">12,500.00</span></td></tr>
+                <tr><td>Horas extra</td><td>$ <span data-count="1041.67" data-dec="2">1,041.67</span></td></tr>
+                <tr class="neg"><td>ISR</td><td>− $ <span data-count="1612.40" data-dec="2">1,612.40</span></td></tr>
+                <tr class="neg"><td>IMSS</td><td>− $ <span data-count="341.25" data-dec="2">341.25</span></td></tr>
+                <tr class="neg"><td>INFONAVIT</td><td>− $ <span data-count="620" data-dec="2">620.00</span></td></tr>
               </tbody>
-              <tfoot><tr><td>Neto a pagar</td><td>$ 10,968.02</td></tr></tfoot>
+              <tfoot><tr><td>Neto a pagar</td><td>$ <span data-count="10968.02" data-dec="2">10,968.02</span></td></tr></tfoot>
             </table>
-            <div class="payslip__alert">⚠️ Certificado CSD vence en 18 días</div>
+            <div class="payslip__alert"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17.5v.01"/></svg> Certificado CSD vence en 18 días</div>
           </div>
         </article>
 
@@ -238,10 +240,10 @@
         <article class="product product--split product--reverse reveal" id="conta">
           <div class="ledger" aria-hidden="true">
             <div class="payslip__head">
-              <div><small>Facturas descargadas del SAT</small><strong>Octubre 2026 · 248 CFDI</strong></div>
-              <span class="pill">96% automático</span>
+              <div><small>Facturas descargadas del SAT</small><strong>Octubre 2026 · <span data-count="248">248</span> CFDI</strong></div>
+              <span class="pill"><span data-count="96">96</span>% automático</span>
             </div>
-            <ul class="ledger__list">
+            <ul class="ledger__list stagger">
               <li><span class="ledger__who">Proveedor de papelería<small>601-84 Papelería y útiles</small></span><span class="tag tag--ok">Aprendida</span></li>
               <li><span class="ledger__who">Servicio de internet<small>601-48 Teléfono e internet</small></span><span class="tag tag--ok">Aprendida</span></li>
               <li><span class="ledger__who">Venta a cliente nacional<small>401-01 Ventas gravadas 16%</small></span><span class="tag tag--ok">Aprendida</span></li>
@@ -256,7 +258,7 @@
             <span class="badge">Contabilidad</span>
             <h3 class="product__title">Conta</h3>
             <p class="lead">Contabilidad en línea para <strong>empresas y personas con actividad empresarial en México</strong>. Descarga las facturas electrónicas del SAT y, a partir de ellas, registra la contabilidad casi sin captura manual.</p>
-            <ul class="checks">
+            <ul class="checks stagger">
               <li>Aprende cómo se registra cada cliente y proveedor</li>
               <li>Revisa que los proveedores no estén en las listas negras del SAT</li>
               <li>Avisa antes de que venzan la e.firma y los sellos fiscales</li>
@@ -309,8 +311,8 @@
           <h2>Platiquemos de tu proyecto.</h2>
           <p class="muted">Cuéntanos qué necesitas y te respondemos con una propuesta.</p>
           <ul class="contact__list">
-            <li><span>✉️</span><a href="mailto:contacto@ayipeytecnology.com">contacto@ayipeytecnology.com</a></li>
-            <li><span>📍</span><address>Av. Insurgentes Sur 1863, Int. 301-B<br>Col. Guadalupe Inn, Álvaro Obregón<br>C.P. 01020, Ciudad de México</address></li>
+            <li><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:contacto@ayipeytecnology.com">contacto@ayipeytecnology.com</a></li>
+            <li><svg class="ic" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><address>Av. Insurgentes Sur 1863, Int. 301-B<br>Col. Guadalupe Inn, Álvaro Obregón<br>C.P. 01020, Ciudad de México</address></li>
           </ul>
         </div>
         <form class="form reveal" id="contact-form" novalidate>
